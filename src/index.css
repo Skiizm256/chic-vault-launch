@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Luxury fashion palette */
+    --background: 34 42% 92%;
+    --foreground: 24 24% 13%;
+
+    --card: 35 36% 88%;
+    --card-foreground: 24 24% 13%;
+
+    --popover: 34 42% 92%;
+    --popover-foreground: 24 24% 13%;
+
+    /* Antique bronze */
+    --primary: 36 58% 42%;
+    --primary-foreground: 38 44% 94%;
+
+    /* Champagne surface */
+    --secondary: 32 34% 84%;
+    --secondary-foreground: 24 24% 18%;
+
+    --muted: 31 29% 85%;
+    --muted-foreground: 25 16% 38%;
+
+    /* Deep rosewood accent */
+    --accent: 351 28% 34%;
+    --accent-foreground: 38 44% 94%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 40 33% 98%;
+
+    --border: 32 22% 75%;
+    --input: 32 24% 80%;
+    --ring: 36 58% 42%;
+
+    --radius: 0.375rem;
+
+    /* Custom fashion tokens */
+    --gold: 39 64% 52%;
+    --cream: 38 44% 90%;
+    --charcoal: 24 24% 13%;
+    --terracotta: 12 40% 42%;
+    --sage: 111 14% 36%;
+    --blush: 356 30% 82%;
+    --champagne: 38 42% 86%;
+    --espresso: 24 28% 12%;
+    --rosewood: 351 28% 30%;
+    --bronze: 36 58% 42%;
+    --pearl: 34 42% 92%;
+
+    /* Gradients */
+    --gradient-hero: radial-gradient(circle at 15% 15%, hsl(var(--blush) / 0.58) 0%, transparent 31%), radial-gradient(circle at 85% 20%, hsl(var(--gold) / 0.22) 0%, transparent 30%), linear-gradient(135deg, hsl(var(--champagne)) 0%, hsl(var(--pearl)) 48%, hsl(18 32% 78%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(38 44% 92%) 0%, hsl(var(--champagne)) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--bronze)) 0%, hsl(var(--rosewood)) 100%);
+    --gradient-luxury-dark: radial-gradient(circle at 20% 20%, hsl(var(--bronze) / 0.28) 0%, transparent 34%), linear-gradient(135deg, hsl(var(--espresso)) 0%, hsl(var(--rosewood)) 100%);
+    --gradient-luxury-soft: linear-gradient(135deg, hsl(var(--pearl)) 0%, hsl(var(--champagne)) 45%, hsl(var(--blush)) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 2px 22px -6px hsl(var(--espresso) / 0.14);
+    --shadow-card: 0 8px 34px -14px hsl(var(--espresso) / 0.22);
+    --shadow-hover: 0 18px 55px -20px hsl(var(--espresso) / 0.32);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 30 10% 8%;
+    --foreground: 40 20% 95%;
+
+    --card: 30 10% 10%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 30 10% 8%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 16 55% 55%;
+    --primary-foreground: 30 10% 8%;
+
+    --secondary: 30 10% 15%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 30 10% 18%;
+    --muted-foreground: 35 10% 60%;
+
+    --accent: 145 25% 40%;
+    --accent-foreground: 40 20% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 40 20% 95%;
+
+    --border: 30 10% 18%;
+    --input: 30 10% 18%;
+    --ring: 16 55% 55%;
+
+    --gold: 42 70% 50%;
+    --cream: 30 10% 12%;
+    --charcoal: 40 20% 90%;
+    --terracotta: 16 55% 55%;
+    --sage: 145 25% 40%;
+    --blush: 10 20% 20%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(30 10% 10%) 0%, hsl(30 10% 8%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(30 10% 12%) 0%, hsl(30 10% 10%) 100%);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', sans-serif;
+    background-image: radial-gradient(circle at top left, hsl(var(--gold) / 0.12), transparent 30%), radial-gradient(circle at bottom right, hsl(var(--accent) / 0.12), transparent 32%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+    @apply tracking-tight;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .font-body {
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+
+  .gradient-luxury-dark {
+    background: var(--gradient-luxury-dark);
+  }
+
+  .gradient-luxury-soft {
+    background: var(--gradient-luxury-soft);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+}
